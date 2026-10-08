@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="on_connect_names">
+        <item>Restore last state (playing or paused)</item>
+        <item>Always start playing</item>
+        <item>Always start paused</item>
+    </string-array>
+    <string-array name="on_connect_values">
+        <item>last</item>
+        <item>play</item>
+        <item>pause</item>
+    </string-array>
+
+    <string-array name="ignore_pause_names">
+        <item>Off</item>
+        <item>2 seconds</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+    </string-array>
+    <string-array name="ignore_pause_values">
+        <item>0</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="repeat_names">
+        <item>Off</item>
+        <item>Repeat one track</item>
+        <item>Repeat folder</item>
+        <item>Repeat all folders</item>
+    </string-array>
+    <string-array name="repeat_values">
+        <item>off</item>
+        <item>one</item>
+        <item>folder</item>
+        <item>all</item>
+    </string-array>
+
+    <string-array name="gesture_names">
+        <item>Fast (400 ms)</item>
+        <item>500 ms</item>
+        <item>Normal (700 ms)</item>
+        <item>1 second</item>
+        <item>Slow (1.5 seconds)</item>
+    </string-array>
+    <string-array name="gesture_values">
+        <item>400</item>
+        <item>500</item>
+        <item>700</item>
+        <item>1000</item>
+        <item>1500</item>
+    </string-array>
+
+    <string-array name="idle_names">
+        <item>Never</item>
+        <item>After 1 minute</item>
+        <item>After 5 minutes</item>
+        <item>After 10 minutes</item>
+        <item>After 30 minutes</item>
+    </string-array>
+    <string-array name="idle_values">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>30</item>
+    </string-array>
+</resources>

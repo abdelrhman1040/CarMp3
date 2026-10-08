@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Connection">
+        <SwitchPreference
+            android:key="any_device"
+            android:title="Work with any Bluetooth device"
+            android:summary="Off: only the devices in your Devices list start the player"
+            android:defaultValue="false" />
+        <ListPreference
+            android:key="on_connect"
+            android:title="When the car connects"
+            android:entries="@array/on_connect_names"
+            android:entryValues="@array/on_connect_values"
+            android:defaultValue="last"
+            android:summary="%s" />
+        <SwitchPreference
+            android:key="car_only"
+            android:title="Play only through the car"
+            android:summary="Never play on the phone speaker. Without the car's audio, playback waits."
+            android:defaultValue="false" />
+        <SwitchPreference
+            android:key="resume_pos"
+            android:title="Resume last track and position"
+            android:summary="Off: start from the first track of the last folder"
+            android:defaultValue="true" />
+        <ListPreference
+            android:key="ignore_pause"
+            android:title="Ignore car pause right after connecting"
+            android:entries="@array/ignore_pause_names"
+            android:entryValues="@array/ignore_pause_values"
+            android:defaultValue="3"
+            android:summary="%s" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Playback">
+        <SwitchPreference
+            android:key="shuffle"
+            android:title="Shuffle"
+            android:defaultValue="false" />
+        <ListPreference
+            android:key="repeat"
+            android:title="Repeat"
+            android:entries="@array/repeat_names"
+            android:entryValues="@array/repeat_values"
+            android:defaultValue="folder"
+            android:summary="%s" />
+        <SwitchPreference
+            android:key="folder_resume"
+            android:title="Remember position in each folder"
+            android:summary="When you switch folders, continue where you stopped in that folder"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Steering wheel">
+        <SwitchPreference
+            android:key="folder_gesture"
+            android:title="Folder gesture"
+            android:summary="Press next, previous, next quickly: next folder. Previous, next, previous: previous folder. When on, a single press waits a moment to see if more presses follow."
+            android:defaultValue="true" />
+        <ListPreference
+            android:key="gesture_ms"
+            android:title="Gesture speed"
+            android:entries="@array/gesture_names"
+            android:entryValues="@array/gesture_values"
+            android:defaultValue="700"
+            android:summary="Longest gap between presses: %s" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Battery">
+        <ListPreference
+            android:key="idle_min"
+            android:title="Stop the app when paused and not in the car"
+            android:entries="@array/idle_names"
+            android:entryValues="@array/idle_values"
+            android:defaultValue="10"
+            android:summary="%s" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="About">
+        <Preference
+            android:title="GitHub repository"
+            android:summary="github.com/abdelrhman1040/CarMp3">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/abdelrhman1040/CarMp3" />
+        </Preference>
+        <Preference
+            android:title="Latest builds (APK)"
+            android:summary="Open Actions, pick the newest run, download car-player-apk">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/abdelrhman1040/CarMp3/actions" />
+        </Preference>
+        <Preference
+            android:title="Version"
+            android:summary="1.1"
+            android:selectable="false" />
+    </PreferenceCategory>
+</PreferenceScreen>
