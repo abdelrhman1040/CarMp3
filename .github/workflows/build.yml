@@ -2,11 +2,7 @@ name: Build APK
 
 on:
   push:
-    branches: [ main, master ]
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   build:
@@ -17,27 +13,21 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
+          java-version: '17'
 
       - uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: 8.9
+          gradle-version: '8.9'
+
+      - name: Make sure the Android platform is installed
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-34" "build-tools;34.0.0" || true
 
       - name: Build debug APK
-        run: gradle assembleDebug --no-daemon --stacktrace
+        run: gradle assembleDebug --no-daemon
 
-      - name: Rename APK
-        run: cp app/build/outputs/apk/debug/app-debug.apk CarMp3.apk
-
-      - name: Keep APK as workflow artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
-          name: CarMp3-apk
-          path: CarMp3.apk
-
-      - name: Publish APK as a release (direct download link)
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: build-${{ github.run_number }}
-          name: Build ${{ github.run_number }}
-          files: CarMp3.apk
+          name: car-player-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
